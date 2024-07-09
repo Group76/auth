@@ -7,8 +7,8 @@ table_name = "Client"
 
 
 def lambda_handler(event, context):
-    token = event['authorization']
-    method_arn = event['methodArn']
+    token = event['identitySource'][0]
+    method_arn = event['routeArn']
 
     # Decode the JWT token
     try:
